@@ -1,10 +1,210 @@
-<!DOCTYPE html><html lang="zh"><head><meta charset="UTF-8"><title>Java面试工具</title>
-<style>body{font-family:Arial;max-width:600px;margin:20px;padding:20px;background:#0f172a;color:#e2e8f0}
-h1{color:#38bdf8}a{color:#38bdf8;display:block;margin:8px 0}.qr{text-align:center;margin:30px 0}
-.qr img{width:180px;border-radius:12px}</style></head><body>
-<h1>🎯 Java面试免费工具</h1><p>全部开源免费</p>
-<a href="https://Abyte-zym.github.io/interview-simulator/">🎯 面试模拟器</a>
-<a href="https://Abyte-zym.github.io/java-cheatsheet/">📋 速查表</a>
-<a href="https://Abyte-zym.github.io/java-resume-builder/">📝 简历生成器</a>
-<div class="qr"><p>☕ 帮到你了？</p><img src="qrcode.png"><p style="color:#64748b;font-size:12px">微信扫码赞赏</p></div>
-</body></html>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java面试知识全景图 | 2026 | 一站式面试准备</title>
+<meta name="description" content="2026 Java实习面试知识全景图——15大知识域、100+考点可视化思维导图。Java基础→JVM→并发→Spring→MySQL→Redis→微服务→AI。免费开源，面试通关必备。">
+<meta name="keywords" content="Java面试知识图谱,Java面试思维导图,Java学习路线图,2026 Java实习,Java面试准备">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f172a;color:#e2e8f0;overflow-x:hidden}
+.hero{text-align:center;padding:60px 20px 40px;background:linear-gradient(135deg,#1e3a5f,#0f172a)}
+.hero h1{font-size:2.4em;background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px}
+.hero p{color:#94a3b8;font-size:1.1em}
+.hero .stats{display:flex;justify-content:center;gap:40px;margin-top:20px}
+.stat{text-align:center}
+.stat-num{font-size:2em;font-weight:700;color:#60a5fa}
+.stat-label{font-size:.85em;color:#64748b}
+
+.map{max-width:1200px;margin:20px auto;padding:20px}
+.domain{margin-bottom:12px;border-radius:12px;overflow:hidden}
+.domain-header{cursor:pointer;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;font-weight:600;font-size:1.1em;transition:all .2s}
+.domain-header:hover{filter:brightness(1.1)}
+.domain-header .icon{font-size:1.3em;margin-right:12px}
+.domain-header .arrow{transition:transform .3s}
+.domain.open .domain-header .arrow{transform:rotate(180deg)}
+.domain-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.domain.open .domain-body{max-height:600px}
+.topics{display:flex;flex-wrap:wrap;gap:8px;padding:16px 24px}
+.topic{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:6px 14px;font-size:.85em;color:#cbd5e1;transition:all .15s;cursor:default}
+.topic:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.15);transform:translateY(-1px)}
+.topic.hot{background:rgba(239,68,68,.15);border-color:rgba(239,68,68,.3);color:#fca5a5}
+.topic.new{background:rgba(34,197,94,.15);border-color:rgba(34,197,94,.3);color:#86efac}
+
+.domain-0 .domain-header{background:linear-gradient(135deg,#1e40af,#3b82f6)}
+.domain-1 .domain-header{background:linear-gradient(135deg,#7c3aed,#8b5cf6)}
+.domain-2 .domain-header{background:linear-gradient(135deg,#dc2626,#ef4444)}
+.domain-3 .domain-header{background:linear-gradient(135deg,#059669,#10b981)}
+.domain-4 .domain-header{background:linear-gradient(135deg,#d97706,#f59e0b)}
+.domain-5 .domain-header{background:linear-gradient(135deg,#0891b2,#06b6d4)}
+.domain-6 .domain-header{background:linear-gradient(135deg,#4f46e5,#6366f1)}
+.domain-7 .domain-header{background:linear-gradient(135deg,#be185d,#ec4899)}
+.domain-8 .domain-header{background:linear-gradient(135deg,#166534,#22c55e)}
+.domain-9 .domain-header{background:linear-gradient(135deg,#ea580c,#f97316)}
+.domain-10 .domain-header{background:linear-gradient(135deg,#2563eb,#60a5fa)}
+.domain-11 .domain-header{background:linear-gradient(135deg,#9333ea,#c084fc)}
+.domain-12 .domain-header{background:linear-gradient(135deg,#b91c1c,#ef4444)}
+.domain-13 .domain-header{background:linear-gradient(135deg,#0e7490,#22d3ee)}
+.domain-14 .domain-header{background:linear-gradient(135deg,#15803d,#4ade80)}
+
+.share-bar{text-align:center;padding:30px;background:#1e293b;margin-top:30px}
+.share-bar h3{color:#e2e8f0;margin-bottom:8px}
+.share-bar p{color:#94a3b8;font-size:.9em;margin-bottom:16px}
+.share-bar img{width:180px;border-radius:8px}
+.share-bar .btn{display:inline-block;background:#3b82f6;color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:600;margin:8px;transition:all .2s}
+.share-bar .btn:hover{background:#2563eb;transform:translateY(-1px)}
+.share-bar .btn.green{background:#10b981}
+.share-bar .btn.green:hover{background:#059669}
+
+footer{text-align:center;padding:30px;color:#64748b;font-size:.85em}
+footer a{color:#60a5fa;text-decoration:none;margin:0 6px}
+footer a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+
+<div class="hero">
+<h1>🗺️ Java面试知识全景图</h1>
+<p>15大知识域 · 100+核心考点 · 2026最新版</p>
+<div class="stats">
+<div class="stat"><div class="stat-num">15</div><div class="stat-label">知识域</div></div>
+<div class="stat"><div class="stat-num">100+</div><div class="stat-label">考点</div></div>
+<div class="stat"><div class="stat-num">24</div><div class="stat-label">配套文章</div></div>
+<div class="stat"><div class="stat-num">22</div><div class="stat-label">面试工具</div></div>
+</div>
+</div>
+
+<div class="map" id="map">
+
+<div class="domain domain-0 open" onclick="toggle(this)">
+<div class="domain-header"><span><span class="icon">☕</span>Java基础核心</span><span class="arrow">▼</span></div>
+<div class="domain-body"><div class="topics">
+<span class="topic hot">HashMap底层(数组+链表+红黑树)</span><span class="topic hot">== vs equals</span><span class="topic">ArrayList vs LinkedList</span><span class="topic">String不可变性</span><span class="topic hot">ConcurrentHashMap演进</span><span class="topic">泛型擦除</span><span class="topic">反射机制</span><span class="topic">异常体系</span><span class="topic">IO/NIO</span><span class="topic new">Java8→17→21新特性</span>
+</div></div>
+</div>
+
+<div class="domain domain-1" onclick="toggle(this)">
+<div class="domain-header"><span><span class="icon">🔥</span>JVM虚拟机</span><span class="arrow">▼</span></div>
+<div class="domain-body"><div class="topics">
+<span class="topic hot">内存区域(堆/栈/方法区)</span><span class="topic hot">GC算法(标记清除/复制/整理)</span><span class="topic hot">CMS vs G1 vs ZGC</span><span class="topic">类加载机制+双亲委派</span><span class="topic">强软弱虚引用</span><span class="topic">JVM调优参数</span><span class="topic">OOM排查</span><span class="topic">JIT编译</span>
+</div></div>
+</div>
+
+<div class="domain domain-2" onclick="toggle(this)">
+<div class="domain-header"><span><span class="icon">⚡</span>并发编程</span><span class="arrow">▼</span></div>
+<div class="domain-body"><div class="topics">
+<span class="topic hot">synchronized锁升级</span><span class="topic hot">AQS原理</span><span class="topic hot">线程池7参数</span><span class="topic">volatile可见性</span><span class="topic">CAS原子操作</span><span class="topic">ThreadLocal内存泄漏</span><span class="topic">Lock vs synchronized</span><span class="topic">CompletableFuture</span><span class="topic">死锁排查</span>
+</div></div>
+</div>
+
+<div class="domain domain-3" onclick="toggle(this)">
+<div class="domain-header"><span><span class="icon">🌿</span>Spring全家桶</span><span class="arrow">▼</span></div>
+<div class="domain-body"><div class="topics">
+<span class="topic hot">IoC/DI原理</span><span class="topic hot">Bean生命周期</span><span class="topic hot">自动配置@SpringBootApplication</span><span class="topic">@Transactional失效场景</span><span class="topic hot">Spring AOP代理</span><span class="topic">Spring MVC流程</span><span class="topic new">Spring Boot 3新特性</span><span class="topic">循环依赖三级缓存</span><span class="topic">Spring Security</span>
+</div></div>
+</div>
+
+<div class="domain domain-4" onclick="toggle(this)">
+<div class="domain-header"><span><span class="icon">💾</span>MySQL数据库</span><span class="arrow">▼</span></div>
+<div class="domain-body"><div class="topics">
+<span class="topic hot">索引(B+树/聚簇/覆盖)</span><span class="topic hot">索引失效场景</span><span class="topic hot">慢SQL优化EXPLAIN</span><span class="topic">事务隔离级别</span><span class="topic">MVCC原理</span><span class="topic">分库分表</span><span class="topic">主从复制</span><span class="topic">MyBatis缓存/N+1</span><span class="topic">连接池HikariCP</span>
+</div></div>
+</div>
+
+<div class="domain domain-5" onclick="toggle(this)">
+<div class="domain-header"><span><span class="icon">⚙️</span>Redis缓存</span><span class="arrow">▼</span></div>
+<div class="domain-body"><div class="topics">
+<span class="topic hot">缓存穿透/击穿/雪崩</span><span class="topic hot">分布式锁Redisson</span><span class="topic">持久化RDB vs AOF</span><span class="topic">主从+哨兵+集群</span><span class="topic">BigKey+HotKey</span><span class="topic">内存淘汰策略</span><span class="topic">延迟队列ZSet</span><span class="topic">布隆过滤器</span>
+</div></div>
+</div>
+
+<div class="domain domain-6" onclick="toggle(this)">
+<div class="domain-header"><span><span class="icon">🌐</span>微服务分布式</span><span class="arrow">▼</span></div>
+<div class="domain-body"><div class="topics">
+<span class="topic hot">Spring Cloud Alibaba</span><span class="topic hot">Nacos注册/配置中心</span><span class="topic hot">Sentinel限流熔断</span><span class="topic">Gateway网关</span><span class="topic">CAP理论</span><span class="topic">分布式事务Seata/TCC</span><span class="topic">分布式ID雪花算法</span><span class="topic">OpenFeign远程调用</span>
+</div></div>
+</div>
+
+<div class="domain domain-7" onclick="toggle(this)">
+<div class="domain-header"><span><span class="icon">📨</span>消息队列</span><span class="arrow">▼</span></div>
+<div class="domain-body"><div class="topics">
+<span class="topic hot">RocketMQ削峰</span><span class="topic hot">消息不丢+不重复</span><span class="topic">Kafka高吞吐</span><span class="topic">RabbitMQ死信队列</span><span class="topic">顺序消息</span><span class="topic">事务消息</span><span class="topic">消息积压处理</span>
+</div></div>
+</div>
+
+<div class="domain domain-8" onclick="toggle(this)">
+<div class="domain-header"><span><span class="icon">🐳</span>DevOps运维</span><span class="arrow">▼</span></div>
+<div class="domain-body"><div class="topics">
+<span class="topic">Docker分层/网络</span><span class="topic">docker-compose</span><span class="topic">K8s Pod/Deploy/Service</span><span class="topic">Linux排查(top/free/df)</span><span class="topic">Git工作流</span><span class="topic">CI/CD Jenkins</span><span class="topic">Nginx负载均衡</span>
+</div></div>
+</div>
+
+<div class="domain domain-9" onclick="toggle(this)">
+<div class="domain-header"><span><span class="icon">🔧</span>设计模式</span><span class="arrow">▼</span></div>
+<div class="domain-body"><div class="topics">
+<span class="topic hot">单例(DCL+volatile)</span><span class="topic">工厂三兄弟</span><span class="topic">代理(JDK vs CGLIB)</span><span class="topic">策略模式</span><span class="topic">观察者模式</span><span class="topic">模板方法</span><span class="topic">Spring用了10+种模式</span>
+</div></div>
+</div>
+
+<div class="domain domain-10" onclick="toggle(this)">
+<div class="domain-header"><span><span class="icon">🌍</span>计算机网络</span><span class="arrow">▼</span></div>
+<div class="domain-body"><div class="topics">
+<span class="topic hot">TCP三次握手四次挥手</span><span class="topic hot">HTTPS/TLS握手</span><span class="topic">HTTP 1.1 vs 2.0 vs 3.0</span><span class="topic">DNS解析流程</span><span class="topic">CDN原理</span><span class="topic">WebSocket</span><span class="topic">OSI七层模型</span>
+</div></div>
+</div>
+
+<div class="domain domain-11" onclick="toggle(this)">
+<div class="domain-header"><span><span class="icon">📐</span>数据结构与算法</span><span class="arrow">▼</span></div>
+<div class="domain-body"><div class="topics">
+<span class="topic hot">手写LRU</span><span class="topic hot">排序算法复杂度</span><span class="topic">二叉树遍历</span><span class="topic">动态规划(DP)</span><span class="topic">链表反转</span><span class="topic">堆/TopK</span><span class="topic">LeetCode Hot100</span>
+</div></div>
+</div>
+
+<div class="domain domain-12" onclick="toggle(this)">
+<div class="domain-header"><span><span class="icon">🧪</span>测试与质量</span><span class="arrow">▼</span></div>
+<div class="domain-body"><div class="topics">
+<span class="topic hot">JUnit5单元测试</span><span class="topic hot">Mockito/Mock vs Spy</span><span class="topic new">@SpringBootTest集成测试</span><span class="topic">TDD红绿重构</span><span class="topic">代码覆盖率JaCoCo</span><span class="topic">TestContainers</span>
+</div></div>
+</div>
+
+<div class="domain domain-13" onclick="toggle(this)">
+<div class="domain-header"><span><span class="icon">🤖</span>AI与大模型</span><span class="arrow">▼</span></div>
+<div class="domain-body"><div class="topics">
+<span class="topic hot new">Spring AI 2.0</span><span class="topic hot new">RAG架构</span><span class="topic hot new">Agent公式(LLM+规划+记忆+工具)</span><span class="topic new">向量数据库</span><span class="topic new">Prompt工程</span><span class="topic new">Function Calling</span>
+</div></div>
+</div>
+
+<div class="domain domain-14" onclick="toggle(this)">
+<div class="domain-header"><span><span class="icon">🎤</span>软技能面试</span><span class="arrow">▼</span></div>
+<div class="domain-body"><div class="topics">
+<span class="topic">自我介绍1分钟模板</span><span class="topic">项目介绍3句话公式</span><span class="topic">你为什么选我们公司</span><span class="topic">职业规划</span><span class="topic">薪资谈判技巧</span><span class="topic">反问面试官技巧</span><span class="topic">HR面注意事项</span>
+</div></div>
+</div>
+
+</div>
+
+<div class="share-bar">
+<h3>💛 这张全景图值一杯咖啡吗？</h3>
+<p>22个工具 + 24篇文章 + 100+考点 · 全部免费开源 · 赞赏支持持续更新</p>
+<img src="https://raw.githubusercontent.com/Abyte-zym/jarvis-backup/main/wechat-reward.jpg" alt="微信赞赏码" onerror="this.style.display='none'">
+<p style="color:#94a3b8;font-size:.85em;margin-top:8px">扫码赞赏 · 或分享给正在找Java实习的同学</p>
+<div style="margin-top:12px">
+<a href="https://Abyte-zym.github.io/arsenal" class="btn green">🎯 一键收藏全部资源</a>
+<a href="#" onclick="navigator.share&&navigator.share({title:'Java面试知识全景图',url:location.href});return false" class="btn">📤 分享给朋友</a>
+</div>
+</div>
+
+<footer>
+<a href="https://Abyte-zym.github.io/java-career-blog">📚 博客</a>
+<a href="https://Abyte-zym.github.io/java-interview-quiz">☕ 题库</a>
+<a href="https://Abyte-zym.github.io/java-resume-builder">📝 简历</a>
+<a href="https://Abyte-zym.github.io/arsenal">🎯 弹药库</a>
+<p style="margin-top:6px">© 2026 Abyte-zym · 免费开源 · 赞赏支持</p>
+</footer>
+
+<script>
+function toggle(el){el.classList.toggle('open')}
+</script>
+</body>
+</html>
